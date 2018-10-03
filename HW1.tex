@@ -10,10 +10,8 @@ whether the operating system should include applications such as web
 browsers and mail programs. Argue both that it should and that it
 should not, and support your answers.\\\\
 
-Answer: \\
-
-My argument for an operating system with an email client and web browser built in 
-would be that larger more involved environments benefit in some function 
+Answer: My argument for an operating system with an email client and web browser built in 
+would be that larger more involved environments benefit in some functional 
 way by including such features. Windows and Ubuntu, for example, are served by 
 including such applications because they are desktop environments.  \\\\
 
@@ -62,7 +60,7 @@ for specific tasks.\\\\
 \end{enumerate}
 1.8 Some CPUs provide for more than two modes of operation. What are two
 possible uses of these multiple modes?\\\\
-Supervisor mode and privileged mode, both of which allow for more varied 
+Answer: Supervisor mode and privileged mode, both of which allow for more varied 
 types of access through a varying hierarchy protection of domains.\\\\
 1.12 In a multiprogramming and time-sharing environment, several users
 share the system simultaneously. This situation can result in various
@@ -81,4 +79,48 @@ security problems.\\\\
     fairly. This is not a given that this will be the case but it is the obvious 
     answer to me.
 \end{enumerate}
+1.14 Under what circumstances would a user be better off using a timesharing
+system than a PC or a single-user workstation?\\\\
+An Amazon S3 server with multiple virtual machines is an instance of a 
+time sharing system. Often times the economics of renting time on a 
+large machine is better than owning your own hardware.\\\\
+1.19 What is the purpose of interrupts? \\\\
+Answer: Assuming the question means hardware interrupt, this is a signal raised 
+by a process or a external piece of hardware to disturb a process running on 
+piece of hardware. Interrupts are asynchronous and may occur at any time.\\\\
+How does an interrupt differ from a trap? \\\\
+Traps are raised by user programs to invoke some functionality in the OS.\\\\
+Can traps be generated intentionally by a user program? If so, for what 
+purpose?\\\\
+Answer: That's the whole point of a trap is to invoke some functionality of an 
+operating system or catch arithmetic errors(depending on the hardware). 
+So yes, a trap can be generated intentionally by a user program.\\\\
+1.25 Describe a mechanism for enforcing memory protection in order to
+prevent a program from modifying the memory associated with other
+programs.\\\\
+Answer: Virtual memory is one of the most used mechanisms for enforcing memory 
+protection in order to prevent a program from modifying the memory associated 
+with other programs. \\\\
+1.26 Which network configuration—LAN or WAN—would best suit the
+following environments?
+\begin{enumerate}[a)]
+    \item A campus student union Answer: LAN because student unions are held 
+    in one building.
+    \item Several campus locations across a statewide university system Answer: 
+    WAN because the distance between computers in the network are vast.
+    \item A neighborhood Answer: WAN because the distances between houses 
+    can be greater than 300 feet which is about the limit of the distance 
+    for most ethernet cables.
+\end{enumerate}
+1.27 Describe some of the challenges of designing operating systems for
+mobile devices compared with designing operating systems for traditional
+PCs.\\\\
+Answer: Power consumption is the most obvious challenge for mobile devices because 
+batteries are a deficient technology. Most desktop PCs assume they have 
+access to infinite power, mobile devices cannot make these assumptions. 
+Most medical environment don't talk on even local networks inorder to 
+lockdown the system from outside attack, while traiditional PCs see this
+as a feature most of the time. Operating systems on traditional PCs had at 
+one time a greater expection of features than mobile operating systems,
+but has changed with the advent of the smart phone but is true (mostly).
 \end{document}
