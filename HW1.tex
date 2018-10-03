@@ -1,4 +1,5 @@
 \documentclass[12pt]{article}
+\usepackage[shortlabels]{enumitem}
 \begin{document}
 \title{TCSS 343 - Week 4}
 \author{Jake McKenzie}
@@ -22,5 +23,62 @@ typically not used on the desktop. These would include smaller
 embedded devices such as printers and LeapFrog computers for kids. 
 These embedded devices are smaller and have more focused devices 
 for specific tasks.\\\\
-
+1.6 Which of the following instructions should be privileged?\\\\
+\begin{enumerate}[a)]
+    \item Set value of timer. ANSWER: \textbf{Privileged} From page 26 and 27. 
+    Before turning over control to the user, the operating system ensures 
+    that the timer is set to interrupt. If the timer interrupts, control 
+    transfers automatically to the operating system, which may treat the 
+    interrupt as a fatal error or may give the program more time. 
+    Clearly, instructions that modify the content of the timer are 
+    privileged.
+    \item Read the clock. ANSWER: \textbf{Unprivileged} Not mentioned in the
+    text but it should be obvious that every process should be able to read 
+    the clock because otherwise every process would be a mess and no process 
+    could get anything done. 
+    \item Clear memory. ANSWER: \textbf{Privileged} Not mentioned in the 
+    text but it should be obvious that memory is sacred and requires 
+    privileged access. If a process does not have access to a piece of 
+    memory then the OS needs to deny access to that process.
+    \item Issue a trap instruction. \textbf{Unprivileged} I can't find 
+    this in the text but it would seem obvious to me from lecture that 
+    all processes need some way to terminate themselves.
+    \item Turn off interrupts. \textbf{Privieleged} From 
+    page 52. Various instructions are privileged and can be executed only 
+    in kernel mode. Examples include the instruction to switch to kernel 
+    mode, I/O control, timer management, and interrupt management.
+    \item Modify entries in device-status table. \textbf{Privileged} From 
+    page 52. Various instructions are privileged and can be executed only 
+    in kernel mode. Examples include the instruction to switch to kernel 
+    mode, I/O control, timer management, and interrupt management.
+    \item Switch from user to kernel mode. \textbf{Privileged} From page 52.
+    Various instructions are privileged and can be executed only in kernel
+    mode. Examples include the instruction to switch to kernel mode, I/O
+    control, timer management, and interrupt management. 
+    \item Access I/O device. \textbf{Privileged} From page 52. Various 
+    instructions are privileged and can be executed only in kernel mode. 
+    Examples include the instruction to switch to kernel mode, I/O
+    control, timer management, and interrupt management.
+\end{enumerate}
+1.8 Some CPUs provide for more than two modes of operation. What are two
+possible uses of these multiple modes?\\\\
+Supervisor mode and privileged mode, both of which allow for more varied 
+types of access through a varying hierarchy protection of domains.\\\\
+1.12 In a multiprogramming and time-sharing environment, several users
+share the system simultaneously. This situation can result in various
+security problems.\\\\
+\begin{enumerate}[a)]
+    \item What are two such problems? Identity theft and theft of service 
+    often security problems that arise in multiprogramming and time-sharing 
+    engironments. 
+    \item Can we ensure the same degree of security in a time-shared 
+    machine as in a dedicated machine? Explain your answer. We cannot 
+    ensure the same degree of security in a time-shared environment than 
+    dedicated enviornment because cannot lock down that system in the same
+    way. By it's nature a time-shared machine is more complicated than 
+    a dedicated machine. More complexity means a higher propensity for 
+    the possibility of bugs and less likely that resources will be allocated 
+    fairly. This is not a given that this will be the case but it is the obvious 
+    answer to me.
+\end{enumerate}
 \end{document}
