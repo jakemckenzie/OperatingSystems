@@ -56,12 +56,28 @@ microkernel architecture? What are the disadvantages of using the
 microkernel approach?\\\\
 \textbf{ANSWER: }The main advantage of the microkernel approach 
 is that when you add some new service in the operating system that 
-does not modify the kernal. Like a government that rules a nation 
+does not modify the kernel. Like a government that rules a nation 
 and all its states, the kernel is the central set of instructions 
 that not only governs how processes interact with the body politic 
 but also provides the rules on how they should use the institutions 
 in the computing device, such as the disk, the memory or I/O devices.
 Like any good government it should be hard to change the core 
 institutions, which is where the microkernel comes in.\\\\
-
+Programs that manage each individual I/O device, for example, 
+are the staff which keep all the departments which use these I/O 
+device of the OS running smoothing. Communication through message 
+passing and shared memory(not mentioned in the book but I believe 
+is also true) is the main function of the microkernel. This, I believe, 
+is what leads to what you mentioned in class of having for example
+ ``good mixture of different heavy CPU intensive tasks 
+and I/O tasks''.\\\\
+By introducing microkernels you can suffer from performance decreases 
+due to the inflation of system function overhead that comes with 
+more microkernels.\\\\
+2.22 What are the advantages of using loadable kernel modules?\\\\
+Loading kernel modules are ideal of adding/removing code to/from 
+the kernel at runtime, ideal for device drivers, reducing the size of 
+the kernel, and are especially used in linux as it is a monolithic kernal.
+One of the major ways to add functionality to linux is through LKMs for 
+this reason.
 \end{document}
