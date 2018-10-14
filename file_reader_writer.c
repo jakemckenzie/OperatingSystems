@@ -15,6 +15,7 @@ int main(int argc,char **argv) {
 	//variable buffer size
 	int bs = atoi(argv[3]);
 	//the two file pointers
+	c = bs
 	FILE *fp1, *fp2;
 	fp1 = fopen(argv[1], "r");
 	
