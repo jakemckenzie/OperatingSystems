@@ -12,13 +12,12 @@
 int main(int argc,char **argv) {
 	//bytes to be read and written
 	char c;
+	size_t a;
 	//variable buffer size
 	int bs = atoi(argv[3]);
 	//the two file pointers
-	c = bs
 	FILE *fp1, *fp2;
 	fp1 = fopen(argv[1], "r");
-	
 	
 	if( fp1 == NULL ) {
 		printf("\n The file failed to read. \n");
@@ -34,9 +33,10 @@ int main(int argc,char **argv) {
 	}
 		
 	char *buffer = (char*) malloc(bs);
-	
-	while( ( c = fgetc(fp1) ) != EOF ){	
-		fputc(c, fp2);
+	int i;
+	while( (a = fread(buffer, 1, bs, fp1)) > 0 ){
+		//printf("%u: %s\n",a, buffer);	
+		fwrite(buffer, 1, a, fp2);
 	}
 	
 	printf("File provided was read correctly and file output was written to successfully!\n");
