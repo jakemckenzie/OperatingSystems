@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 /*
+ * Jake McKenzie
  * 
  * This file reads two file names and a variable buffer size.
  * 
