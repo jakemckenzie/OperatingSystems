@@ -1,6 +1,8 @@
 #include <sys/types.h>
 #include <stdio.h>
 #include <unistd.h>
+#include <sys/types.h>// The book forgot to include
+#include <sys/wait.h>// these libraries? *tsk tsk*
 int main() {
     pid_t pid, pid1;
     /* fork a child process */
