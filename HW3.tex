@@ -47,10 +47,15 @@ microsoft.com, provides a process-tree tool.\\\\
 \textbf{ANSWER: }\\\\
 3.12 Including the initial parent process, how many processes are created by
 the program shown in Figure 3.32?\\\\
-\textbf{ANSWER: }\\\\
-3.13 Explain the circumstances under which which the line of code marked
+\textbf{ANSWER: }\\
+So at each interation of the loop we fork() we fork once. This will make 4
+parents. This process creates a binary tree which gives us the following 
+equation for the problem: $\sum_{i=0}^{3}{2^i}=2^4-1=15$. \\\\
+3.13 Explain the circumstances under which the line of code marked
 printf("LINE J") in Figure 3.33 will be reached.\\\\
-\textbf{ANSWER: }\\\\
+\textbf{ANSWER: }\\
+If the process generated from fork() is a child then this line will have been 
+reached.\\\\
 3.17 Using the program shown in Figure 3.35, explain what the output will
 be at lines X and Y.\\\\
 \textbf{ANSWER: }\\\\

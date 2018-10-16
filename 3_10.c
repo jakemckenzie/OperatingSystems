@@ -11,11 +11,11 @@ int main() {
         return 1;
     } else if (pid == 0) { /* child process */
         execlp("/bin/ls","ls",NULL);
-        printf("LINE J");
+        printf("LINE J\n\n");
     } else { /* parent process */
         /* parent will wait for the child to complete */
         wait(NULL);
-        printf("Child Complete");
+        printf("Child Complete\n\n");
     }
     return 0;
 }
