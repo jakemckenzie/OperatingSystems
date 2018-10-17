@@ -25,7 +25,7 @@ switches from the execution of $P_1$ $\rightarrow$ $P_2$ and again
 when the operating system switches from the execution of 
 $P_2$ $\rightarrow$ $P_1$. This operation can be expensive. There are both 
 direct and indirect costs. The direct cost includes cycling for loading and
-storing of instructions. The indirect costs from cold cache(cache misses).\\\\
+storing of instructions. The indirect costs from cold cache(cache misses).\\
 
 \noindent In modern CPUs there exists a cache hierarchy. Accessing this cache is many 
 orders of magnitude faster than accessing memory. Using our $P_1$, $P_2$ process
@@ -33,13 +33,13 @@ from before. Say the data for $P_1$ is in the cache, we would say in this case
 that the cache is hot but say we context switch $P_1$ $\rightarrow$ $P_2$ and we 
 need to access the data for $P_2$ which is not in the cache. In this case we would say 
 the cache is cold. Not only do we need to retrieve the data for $P_2$ and put it into 
-the cache but we need to replace the data for $P_1$ in the cache with that of $P_2$.\\\\
+the cache but we need to replace the data for $P_1$ in the cache with that of $P_2$.\\
 
 \noindent Long story short, having a cold cache sucks. The hotter your cache, the smoother 
 your OS operates so limiting the number of context switching is optimal.\\\\
 3.10 Construct a process tree similar to Figure 3.8. To obtain process information
 for the UNIX or Linux system, use the command ps -ael.\\
-\includegraphics{code.jpg}\\
+\includegraphics[scale = .7]{code.jpg}\\
 Use the command man ps to get more information about the ps command.
 The task manager on Windows systems does not provide the
 parent process ID, but the process monitor tool, available from technet.
@@ -50,7 +50,7 @@ the program shown in Figure 3.32?\\\\
 \textbf{ANSWER: }\\
 So at each interation of the loop we fork() we fork once. This will make 4
 parents. This process creates a binary tree which gives us the following 
-equation for the problem: $\sum_{i=0}^{3}{2^i}=2^4-1=15$. \\\\
+equation for the problem: $\sum\limits_{i=0}^{3}{2^i}=2^4-1=15$. \\\\
 3.13 Explain the circumstances under which the line of code marked
 printf("LINE J") in Figure 3.33 will be reached.\\\\
 \textbf{ANSWER: }\\
@@ -58,5 +58,6 @@ If the process generated from fork() is a child then this line will have been
 reached.\\\\
 3.17 Using the program shown in Figure 3.35, explain what the output will
 be at lines X and Y.\\\\
+
 \textbf{ANSWER: }\\\\
 \end{document}
