@@ -45,6 +45,10 @@ The task manager on Windows systems does not provide the
 parent process ID, but the process monitor tool, available from technet.
 microsoft.com, provides a process-tree tool.\\\\
 \textbf{ANSWER: }\\\\
+\includegraphics[width=1\textwidth]{tree.jpg}\\
+I apologize if it's tiny but we can clearly see that my program generated a child 
+from a parent. The parent has a PID of 21519 whie the child has a PPID of that is 
+the same. \\\\
 3.12 Including the initial parent process, how many processes are created by
 the program shown in Figure 3.32?\\\\
 \textbf{ANSWER: }\\
@@ -56,8 +60,16 @@ printf("LINE J") in Figure 3.33 will be reached.\\\\
 \textbf{ANSWER: }\\
 If the process generated from fork() is a child then this line will have been 
 reached.\\\\
+3.14 Using the program in Figure 3.34, identify the values of pid at lines A, B,
+C, and D. (Assume that the actual pids of the parent and child are 2600
+and 2603, respectively.)\\\\
+\includegraphics[width=1\textwidth]{q_pi.jpg}\\
 3.17 Using the program shown in Figure 3.35, explain what the output will
 be at lines X and Y.\\\\
-
 \textbf{ANSWER: }\\\\
+Whenever a child is produced it generates $0*(-0)$ then $1*(-1)$ then $2*(-2)$ 
+then $3*(-3)$ then $4*(-4)$ producing:\\ 
+$X = \{0, -1, -4, -9, -16\}$\\\\
+Whenever a parent is produced it generates the following list:\\
+$Y = \{0, 1, 2, 3, 4\}$\\
 \end{document}
