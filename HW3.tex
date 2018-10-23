@@ -54,12 +54,12 @@ the program shown in Figure 3.32?\\\\
 \textbf{ANSWER: }\\
 So at each interation of the loop we fork() we fork once. This will make 4
 parents. This process creates a binary tree which gives us the following 
-equation for the problem: $\sum\limits_{i=0}^{3}{2^i}=2^4-1=15$. \\\\
+equation for the problem: $\sum\limits_{i=0}^{3}{2^i} + 1=2^4-1 + 1=16$. \\\\
 3.13 Explain the circumstances under which the line of code marked
 printf("LINE J") in Figure 3.33 will be reached.\\\\
 \textbf{ANSWER: }\\
 If the process generated from fork() is a child then this line will have been 
-reached.\\\\
+reached. There must have been an error to reach this stage.\\\\
 3.14 Using the program in Figure 3.34, identify the values of pid at lines A, B,
 C, and D. (Assume that the actual pids of the parent and child are 2600
 and 2603, respectively.)\\\\
