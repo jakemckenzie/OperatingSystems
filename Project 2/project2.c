@@ -3,7 +3,11 @@
   * Operating Systems
   * Project 2 Produce-Consumer problem in linux
   * 
-  * INSTRUCTIONS: 
+  * EXAMPLE INSTRUCTIONS: 
+  * 
+  * gcc ./project2.c -pthread
+  * 
+  * ./a.out 5 2 3
   * 
   * In problem we will solve the bounded-buffer problem
   * with a synchronization solution. The producer produces
@@ -39,6 +43,7 @@ volatile int prdc;
 // the amount the user specifies to consume
 volatile int cnsm;
 
+void random_sleep(void);
 void *producer(void *param); 
 void *consumer(void *param);
 int produce_item(buffer_item item);
@@ -96,12 +101,14 @@ int main(int argc, char *argv[]) {
         }
     } 
 }
-
+/*
+ * This is where producers are spawned based on user definition
+ */
 void *producer(void *param) {  
     buffer_item item;
     while(1){
         // sleep for random amounts of time based on user definition
-        sleep_rand();
+        random_sleep();
         item = rand(); 
         if(produce_item(item)){
             printf("Error...\n");
@@ -111,12 +118,14 @@ void *producer(void *param) {
     }
 
 }
-
+/*
+ * This is where consumers are spawned based on user definition
+ */
 void *consumer(void *param) {    
     buffer_item item;
     while(1){
         // sleep for random amounts of time based on user definition
-        sleep_rand();
+        random_sleep();
         if(consume_item(&item)){
             printf("Error...\n");
         } else{  
@@ -124,7 +133,9 @@ void *consumer(void *param) {
         }    
     }
 }
-
+/*
+ * The is where items in the buffer are produced
+ */
 int produce_item(buffer_item item) {
 
     int flag = 0;
@@ -144,7 +155,9 @@ int produce_item(buffer_item item) {
 
     return flag;
 }
-
+/*
+ * This is where items in the buffer are consumed
+ */
 int consume_item(buffer_item *item) {
     int flag;
     sem_wait(&full);
@@ -162,7 +175,9 @@ int consume_item(buffer_item *item) {
 
     return flag;
 }
-
-void sleep_rand(void) {
+/*
+ * A random amount of sleep based on how much the user specifies
+ */
+void random_sleep(void) {
     sleep(rand() % slp + 1);
 }
