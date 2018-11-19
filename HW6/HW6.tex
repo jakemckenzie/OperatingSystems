@@ -3,7 +3,7 @@
 \usepackage{placeins}
 \usepackage{graphicx}
 \begin{document}
-\title{TCSS 420 - Week 8}
+\title{TCES 420 - Week 8}
 \author{Jake McKenzie}
 \maketitle
 \noindent\centerline{\textbf{Homework 6}}
@@ -196,17 +196,33 @@ manufacturer?\\\\
 The restriction here is on how long it takes for table lookup, which while be $O(1)$ time 
 runtime in reality can add up if not taken into account. Caches can help, but you can still 
 have a cache miss.
-\\\\ \textbf{Section 2}
+\\\\ \textbf{Section 2} Three processes need to acquire six locks labeled $L_1$ 
+to $L_6$, as shown below(2 points)
+\\\\a)Use an allocation graph to show the possibility of a deadlock in this code.\\\\
+\textbf{Answer: }\\
+\includegraphics[scale = 0.6]{sec2.jpg}
 \\\\
-\\\\a)
-\textbf{Answer: }
-\\\\
-\\\\b)
-\textbf{Answer: }
+\\\\b) Change the order of some of the acquires to prevent  the possibility of any deadlock. 
+You cannot move acquire requests across processes, only change the order inside each process. 
+Use anallocation graph to justify your answer.\\
+\textbf{Answer: }To prevent deadlock we need to acquire resources either in ascending or 
+descending order to prevent deadlock. NOT all cycles make the RAG in deadlock, but if 
+there are no cycles the processes are definetly NOT in deadlock. If only one instance per resource 
+type, then there is a deadlock. If there are several instances per rseource type, there is a high 
+likelihood of a deadlock. The probabilistic view tells us to not worry about this problem because 
+it is so rare. UNIX does not take care of this problem because they hold this view.
 \\\\ \textbf{Section 3}
-\textbf{Answer: }
+\textbf{Answer: } First $P_3$ completes making the new available vector $<2,1,0,0>+<0,1,2,0>=<2,2,2,0>$.
+After which $P_2$ completes making the available vector $<2,2,2,0>+<2,0,0,1>=<4,2,2,1>$ and after which 
+$P_1$ completes making the final availbility vector $<4,2,2,1>+<0,0,1,0>=<4,2,3,1>$. So the sequence is 
+$P_3 \rightarrow P_2 \rightarrow P_1$ and the system is not in a deadlock.
 \\\\
 \\\\ \textbf{Section 4}
-\textbf{Answer: }
+\textbf{Answer: } $R_{01}$ arrives at 1 and finishes at 5 while $R_{22}$ arrives at 2 and finishes 
+at 6. $R_{34}$ arrives at 3 and finishes at 7.  $W_{16}$ arrives at 4 but cannot start until 7 and 
+finishes at 15. $R_{47}$ arrives at 5 but waits until $W_{16}$ completes. $R_{49}$ arrives at 6 but 
+must wait until $W_{16}$ completes. $W_{214}$ arrives at 7 and waits until $W_{16}$ completes, when it 
+does it starts and completes at 23. After this $R_{47}$ and $R_{49}$ are free to go where they 
+both complete at 27.
 \\\\
 \end{document}
