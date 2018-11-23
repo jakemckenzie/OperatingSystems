@@ -150,7 +150,7 @@ int main(int argc, char *argv[]) {
     fclose(backing_store);
     // first order statstics
     printf("Reference Number | Page Fault Number | TLB hit number | page fault rate | TLB hit rate\n");
-    printf("%d\t%d\t%d\t%d\t%d\n",stats_no_references, stats_page_fault, stats_TLB_hits, stats_page_fault / (float)stats_no_references, stats_TLB_hits / (float)stats_no_references);
+    printf("%d\t%d\t%d\t%f\t%f\n",stats_no_references, stats_page_fault, stats_TLB_hits, stats_page_fault / (float)stats_no_references, stats_TLB_hits / (float)stats_no_references);
 
     return 0;
 }
