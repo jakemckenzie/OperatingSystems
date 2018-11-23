@@ -9,7 +9,7 @@
  * Operating Systems
  * Project 3
  * 
- * https://github.com/greggagne/OSC9e/tree/master/ch9
+ * 
  * My personal notes:
  *                      Hierarchical Paging
  * 2^m bytes physical memory space and 2^n bytes virtual memory space.
@@ -148,10 +148,12 @@ int main(int argc, char *argv[]) {
     fclose(address_file);
     // closes the backing store
     fclose(backing_store);
-    // first order statstics
-    printf("Reference Number | Page Fault Number | TLB hit number | page fault rate | TLB hit rate\n");
-    printf("%d\t%d\t%d\t%f\t%f\n",stats_no_references, stats_page_fault, stats_TLB_hits, stats_page_fault / (float)stats_no_references, stats_TLB_hits / (float)stats_no_references);
-
+    // simple statstics
+    printf("\n\nReference Number  = %d\n",stats_no_references);
+    printf("Page Fault Number = %d\n",stats_page_fault);
+    printf("TLB Hit Number    = %d\n",stats_TLB_hits);
+    printf("Page Fault Rate   = %f\n",stats_page_fault / (float)stats_no_references);
+    printf("TLB Hit Rate      = %f\n",stats_TLB_hits / (float)stats_no_references);
     return 0;
 }
 
@@ -176,7 +178,7 @@ void fetch_page(int virtual_address) {
    if(in_TLB(pageNumber) != 0){
         // step 1
         mapped_frame = in_TLB(pageNumber);
-	    printf("Found in TLB, page number = %d correspond to frame = %d \n",pageNumber,mapped_frame);
+	    printf("Found in TLB, page number = %d correspond to frame = %d \n\n",pageNumber,mapped_frame);
    } else {
 	    if(pageTable[pageNumber] != -1){
 		    // step 2
@@ -190,9 +192,13 @@ void fetch_page(int virtual_address) {
 		    TLB_add(pageNumber, mapped_frame);
 	    }
     }
-    // for printing
-    printf("Page Number \t| Frame Number \t| Offset \t:: Virtual Address \t| Physical Address \t| Value\n");
-    printf("%d\t\t%d\t\t%d\t\t%d\t\t%d\t\t%d \n", pageNumber, mapped_frame, offset, virtual_address, (mapped_frame << 8) | offset, value);
+    // for printing;
+    printf("Page Number  = %d \n",pageNumber);
+    printf("Frame Number = %d \n",mapped_frame);
+    printf("Offset       = %d\n\n",offset);
+    printf("Virtual Address  = %d \n",virtual_address);
+    printf("Physical Address = %d\n",(mapped_frame << 8) | offset);
+    printf("Value            = %d\n\n",value);
 }
 
 /*
