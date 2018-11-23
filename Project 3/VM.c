@@ -9,6 +9,9 @@
  * Operating Systems
  * Project 3
  * 
+ * Instructions: 
+ * gcc VM.c
+ * ./a.out addresses.txt
  * 
  * My personal notes:
  *                      Hierarchical Paging
@@ -279,7 +282,7 @@ int get_fifo() {
 int put_fifo(int pageNumber, int mapped_frame) {
     // return for debugging purposes
     if(input_fifo == ((TLB_SIZE + output_fifo - 1) % TLB_SIZE)) {
-        return -1; /* Queue Full*/
+        return -1;
     }
     // stores the page number into TLB
     TLB[input_fifo][0] = pageNumber;
