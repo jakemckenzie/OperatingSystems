@@ -61,13 +61,12 @@ $0$xACA$1$ $\sim$ $0$x$5$CA$1$
 \\\\
 b) Using the above addresses as a guide, provide an example of a
 logical address (in hexadecimal) that results in a page fault.\\\\
-\textbf{Answer: } $0$x$4$, $0$x$8$, $0$xC and $0$xD are all page 
-frames that will result in page faults
-\\\\
+\textbf{Answer: } $0$x$1234$, page 1 is occupied so the resulting 
+store will result in a fault.\\\\
 c) From what set of page frames will the LRU page-replacement
 algorithm choose in resolving a page fault?\\\\
-\textbf{Answer: } I don't know how to do this and I'm completely lost.
-You also won't even look at this so what even is the point.\\\\
+\textbf{Answer: } $0$x$4$, $0$x$8$, $0$xC and $0$xD are all page 
+frames that will be picked by the page replacement algorithm page faults. \\\\
 9.23 Assume that you are monitoring the rate at which the pointer in the
 clock algorithm moves. (The pointer indicates the candidate page for
 replacement.) What can you say about the system if you notice the
@@ -177,15 +176,21 @@ of $40\%$. \\\\
 a) There are $2^5$ total pages that take up $2$ KBytes each. That gives us 
 logical page number of $5$ and an offset of $11$ because $2$ KBytes $=$ $2^1*2^{10}$ 
 $=$ $2^{11}$ .\\\\
-b) The width $=$ $\frac{1MB}{2Kb}$ $=$ $\frac{2^{20}}{2^11}$ $=$ $2^9$ so the width is 
+b) The width $=$ $\frac{1MB}{2Kb}$ $=$ $\frac{2^{20}}{2^{11}}$ $=$ $2^9$ so the width is 
 $9$ bits. There are $32$ pages so there must be a length of $32$ to account for each 
 page.\\\\
 c) Making physical memory space reduce by half means shifting to the left 
-by $1$ or to show my work $\frac{2^19}{2^11} = 2^8$. Now the width is effectively 
+by $1$ or to show my work $\frac{2^{19}}{2^{11}} = 2^8$. Now the width is effectively 
 $8$ bits.\\
 \textbf{Section 4}\\
-\includegraphics[scale = 1]{4.JPG}\\
-With a cache I got an Overall EAT $=$ $22.4$ns and without cache an Overall EAT $=$ $12.4$ns.
+\includegraphics[scale = 0.5]{4.JPG}\\
+With a cache I got an Overall EAT $=$ $42.4$ns and without cache an Overall EAT $=$ $63$ns.
 \\\\
 \textbf{Section 5}\\
+For Semaphore $Z$ there can be at most $10$ ($20-10=10$) blocked processes because 
+it will decrement the first $10$ then can block when $Z=0$. After which Semaphore 
+$Y$ can there can also be at most $10$ ($30-20=10$) blocked 
+processes because it will decrement the first $20$ then block when $Y=0$. For Semaphore 
+$X$ there can be an infinite amount of processes blocked as $X$ can reach zero and stay 
+at zero.
 \end{document}
