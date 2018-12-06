@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+\usepackage[shortlabels]{enumitem}
+\usepackage{placeins}
+\usepackage{graphicx}
+\begin{document}
+\title{TCES 420 - Week 10}
+\author{Jake McKenzie}
+\maketitle
+\noindent\centerline{\textbf{Homework 8}}
+\textbf{1)}\\\\
+1-Assume three periodic tasks in a real time system:\\\\
+TA: $T=4$, $P=1$;
+TB: $T=6$, $P=2$;
+TC: $T=8$, $P=2$;\\\\
+a)Apply Earliest Deadline Scheduling(EDS). Show your result in a timing diagram.\\\\
+b)Is Rate Monotonic Scheduling (RMS) possible? 
+Prove your point by a timing diagram sketch.\\\\
+c)Replace TCwith (T=6, P=1). Repeat part b.\\\\
+\textbf{2)}\\\\
+Propose a method to implement EDS in RTX.\\\\
+EDS, to my understanding, priority is is given out to each process 
+dynamically based on each individual processes deadline. We can find what 
+is known as a hyper period by taking the LCM of all the periods. This gives 
+use the period for all the processes. The global interval can be found by 
+taking the GCD of all the process intervals. The size of our table will then 
+be the division of Global Period$/$Global Interval. The 
+Table pointer is then $(i+1)\%$the size of the table.\\\\
+If there is a change within processes to fix the issue, like with your Mars example,
+you must decrement the prior task to last in the priority queue. This ensures there 
+are no processes hogging up the queue.\\\\
+\textbf{3)}\\\\
+Propose a method to implement RMSin RTX.\\\\
+RMS maps one-to-one to a real time operating system and lends itself well 
+to RTOS for this reason.\\\\
+\textbf{4)}\\\\
+Propose a method to implement Earliest Start Timein RTX.\\\\
+Sort the start deadlines by start deadlines then put them in a queue. This 
+list of processes are now scheduled based on this queue. In the interrupt service 
+routine a scheduler is implemented based on current state, where if the next state is 
+different it switches priority. If there are no tasks to schedule, schedules the idle task.\\\\
+\textbf{5)}\\\\
+In a multicore system, on which processor(core?) the OS is running?\\\\
+The OS can exist on any core at any time.
+\end{document}
